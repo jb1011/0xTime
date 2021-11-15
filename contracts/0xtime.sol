@@ -41,20 +41,14 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
         auctionEndTime = block.timestamp + (86400 - (block.timestamp % 86400));
     }
     
-    function getHighestBidder() public view returns(address){
-        return (highestBidder);
-    }
-
-    function getHighestBid() public view returns(uint){
-        return (highestBid);
-    }
-
     function getMyBank() public view returns(uint){
         return (pendingReturns[msg.sender]);
     }
 
     //AUCTION SYSTEM
-    function bid() public payable {
+    //bidAmount permet de mélanger msg.value et ce que la personne a déja sur le contract
+    function bid(uint bidAmount) public payable {
+        require(bidAmount <= msg.value + pendingReturns[msg.sender], "Insufficient fund");
         if (block.timestamp > auctionEndTime) {
             comunityReward = highestBid * community_percent / 100 / totalSupply();
             for (uint i = 0; i < totalSupply(); i++)
@@ -74,10 +68,13 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
         }
         require(highestBidder != msg.sender, "You are the last bidder");
         require(block.timestamp < auctionEndTime, "The auction has already ended");
-        require(msg.value > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
+        require(bidAmount > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
         pendingReturns[highestBidder] += highestBid;
         highestBidder = msg.sender;
-        highestBid = msg.value;
+        highestBid = bidAmount;
+        if (bidAmount - msg.value > 0) {
+            pendingReturns[msg.sender] -= (bidAmount - msg.value);
+        }
     }
     /*
     function withdraw() public returns(bool) {
