@@ -21,7 +21,7 @@ function placeBid() {
            /*try { //We ask to switch the network //Switch network verification
               await ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: '0x89' }],
+              params: [{ chainId: '1' }],
               });
           } catch (switchError) {
               // This error code indicates that the chain has not been added to MetaMask.
