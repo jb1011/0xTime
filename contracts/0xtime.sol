@@ -19,7 +19,7 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     bool private minted = false;
     
     //AUCTION PARAMETERS
-    uint public auctionEndTime = 0;
+    uint public auctionEndTime;
     uint public STARTING_PRICE = 1000000000000000;
 
     uint private community_percent = 70;
@@ -34,7 +34,6 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
 
     uint public comunityReward;
     uint private devRewards;
-    
     constructor() ERC721("Time", "0xTime") {
         owners = msg.sender;
         //Il faut démarrer le premier encheres au lancement du contract
@@ -44,6 +43,7 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     function getMyBank() public view returns(uint){
         return (pendingReturns[msg.sender]);
     }
+    
 
     //AUCTION SYSTEM
     //bidAmount permet de mélanger msg.value et ce que la personne a déja sur le contract
@@ -58,17 +58,17 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
                 currentId++;
             else
                 minted = false;
-            started == false;
+            started = false;
         }
         if (started == false) {
             auctionEndTime = block.timestamp + (86400 - (block.timestamp % 86400));
             highestBid = STARTING_PRICE;
             pastWinner = highestBidder;
-            started == true;
+            started = true;
         }
+        require(bidAmount > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
         require(highestBidder != msg.sender, "You are the last bidder");
         require(block.timestamp < auctionEndTime, "The auction has already ended");
-        require(bidAmount > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
         pendingReturns[highestBidder] += highestBid;
         highestBidder = msg.sender;
         highestBid = bidAmount;
