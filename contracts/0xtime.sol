@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts@4.3.3/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts@4.3.3/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts@4.3.3/access/Ownable.sol";
+import "@openzeppelin/contracts@4.3.3/utils/Counters.sol";
 
-contract Time is ERC721, Ownable {
+contract Time is ERC721, ERC721Enumerable, Ownable {
     
     address private owners;
     
@@ -18,9 +19,8 @@ contract Time is ERC721, Ownable {
     bool private minted = false;
     
     //AUCTION PARAMETERS
-    uint public auctionEndTime;
+    uint public auctionEndTime = 0;
     uint public STARTING_PRICE = 1000000000000000;
-    uint public bank = 0;
 
     uint private community_percent = 70;
     uint private dev_percent = 100 - community_percent;
@@ -37,6 +37,8 @@ contract Time is ERC721, Ownable {
     
     constructor() ERC721("Time", "0xTime") {
         owners = msg.sender;
+        //Il faut démarrer le premier encheres au lancement du contract
+        auctionEndTime = block.timestamp + (86400 - (block.timestamp % 86400));
     }
     
     function getHighestBidder() public view returns(address){
@@ -70,12 +72,9 @@ contract Time is ERC721, Ownable {
             pastWinner = highestBidder;
             started == true;
         }
+        require(highestBidder != msg.sender, "You are the last bidder");
         require(block.timestamp < auctionEndTime, "The auction has already ended");
         require(msg.value > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
-//      if (highestBid != 1000000000000000) {
-//          pendingReturns[highestBidder] += highestBid;
-//      }
-        // C'est quoi ça ?
         pendingReturns[highestBidder] += highestBid;
         highestBidder = msg.sender;
         highestBid = msg.value;
@@ -126,5 +125,21 @@ contract Time is ERC721, Ownable {
             currentId++;
             minted = true;
         }
+    }
+    
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId)
+        internal
+        override(ERC721, ERC721Enumerable)
+    {
+        super._beforeTokenTransfer(from, to, tokenId);
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721Enumerable)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
     }
 }
