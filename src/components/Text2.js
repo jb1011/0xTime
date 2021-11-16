@@ -18,7 +18,7 @@ function Text2() {
         {isWideScreen && 
             <div class="row">
                 <div data-aos="fade-right " class="col text-center" >
-                    <img src="assets/img/times.jpg" class="img-fluid img-w " />
+                    <img src="assets/video/rewards.gif"/>
                 </div>
                 <div data-aos="fade-left" class="col">
                     <h1 class="text-secondary text-center">Earn Rewards</h1>
@@ -43,7 +43,10 @@ function Text2() {
                 </p>
             </div>
             <div class="text-center" data-aos="fade-left">
-                <img src="assets/img/times.jpg" class="img-fluid img-w" />
+                <video playsinline autoPlay muted loop width="500px" height="500px">
+                    <source src="assets/video/rewards.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                    </video>
             </div>
         </div>
         }

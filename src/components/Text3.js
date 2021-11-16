@@ -28,7 +28,10 @@ function Text3() {
                 figures to associations... each day will be highlighted.</p>
                 </div>
                 <div class="col text-center" data-aos="fade-left">
-                    <img src="assets/img/collab.jpg" class="img-fluid img-w " />
+                    <video playsinline autoPlay muted loop width="500px" height="500px">
+                    <source src="assets/video/collabs.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         }
@@ -44,7 +47,10 @@ function Text3() {
                 figures to associations... each day will be highlighted.</p>
         </div>
         <div class="text-center" data-aos="fade-left">
-            <img src="assets/img/collab.jpg" class="img-fluid img-w " />
+            <video playsinline autoPlay muted loop width="500px" height="500px">
+                    <source src="assets/video/collabs.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+            </video>
         </div>
         </div>
         }
