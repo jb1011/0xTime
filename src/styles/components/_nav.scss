@@ -1,0 +1,63 @@
+  .clocknav {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    right: 0px;
+    background: #fff;
+    transform: translate(-50%, -50%);
+}
+
+.clocknav::before { /* grande aiguille */
+    position: absolute;
+    content: '';
+    height: 120px;
+    width: 6px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 2px);
+    border-radius: 5px;
+    animation: spin 60s linear infinite;
+    transform-origin: top;
+}
+
+.clocknav::after { /* petite aiguille */
+    position: absolute;
+    content: '';
+    height: 80px;
+    width: 6px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 0px);
+    border-radius: 5px;
+    animation: spin 360s linear infinite;
+    transform-origin: top;
+    
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(-180deg)
+    }
+    100% {
+        transform: rotate(180deg)
+    }
+}
+
+.clocknav::before { /*middle dot*/
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
+.nav-font {
+    font-size: 20px;
+}

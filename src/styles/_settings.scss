@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Varela+Round&display=swap');
+
+$font-1: "Anton", sans-serif;
+
+.btn {
+    border-radius: 12px;
+}
+
+.container {
+    height: 100vh;
+
+}
+
+h1 {
+    font-size: 5rem;
+    font-family: "bold";
+    color: black;
+}
+
+p {
+    font-size: 18px;
+    font-family: "light";
+}
+
+.progress-bar {
+    width: 70%;
+}
+
+.progress {
+    height: 35px;
+    
+}
+
+.h1-small {
+    font-size: 50px;
+}
+
+.img-w {
+    width: 450px;
+}

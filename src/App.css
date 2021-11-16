@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "light";
+  src: local("BasierCircle-Regular"),
+  url("./fonts/BasierCircle-Regular.woff") format("woff")
+}
+
+@font-face {
+  font-family: "bold";
+  src: local("BasierCircle-Regular"),
+  url("./fonts/BasierCircle-Bold.woff") format("woff")
+}

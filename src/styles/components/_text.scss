@@ -1,0 +1,68 @@
+.text-home {
+    .img-right {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+.clock {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    transform: translate(-50%, -50%);
+}
+
+.clock::before { /* grande aiguille */
+    position: absolute;
+    content: '';
+    height: 150px;
+    width: 8px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 3px);
+    border-radius: 5px;
+    animation: spin 60s linear infinite;
+    transform-origin: top;
+}
+
+.clock::after { /* petite aiguille */
+    position: absolute;
+    content: '';
+    height: 110px;
+    width: 8px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 3px);
+    border-radius: 5px;
+    animation: spin 3600s linear infinite;
+    transform-origin: top;
+    
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(-180deg)
+    }
+    100% {
+        transform: rotate(180deg)
+    }
+}
+
+.dot::before { /*middle dot*/
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
