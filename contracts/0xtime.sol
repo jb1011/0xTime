@@ -1,39 +1,40 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2;
 
-import "@openzeppelin/contracts@4.3.3/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts@4.3.3/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts@4.3.3/access/Ownable.sol";
-import "@openzeppelin/contracts@4.3.3/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Time is ERC721, ERC721Enumerable, Ownable {
     
-    address private owners;
+    address public owners;
     
     //MINTING PARAMETERS
     //Variables for token enumeration
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
     //Minting variables
-    uint256 private currentId = 0; // WTF ???
+    uint256 public currentId = 0; // WTF ???
     bool private minted = false;
     
     //AUCTION PARAMETERS
     uint public auctionEndTime;
     uint public STARTING_PRICE = 1000000000000000;
 
-    uint private community_percent = 70;
-    uint private dev_percent = 100 - community_percent;
+    uint public community_percent = 70;
+    uint public dev_percent = 100 - community_percent;
     address public highestBidder;
     uint public highestBid;
     address public pastWinner;
-    bool started = false;
+    bool public started = false;
     
     mapping(address => uint) public pendingReturns; //Withdrawable amounts of outbided address
     mapping(address => uint) public comunityBalance; //Recording comunity balance for rewards
 
     uint public comunityReward;
-    uint private devRewards;
+    uint public devRewards;
+
     constructor() ERC721("Time", "0xTime") {
         owners = msg.sender;
         //Il faut démarrer le premier encheres au lancement du contract
@@ -43,7 +44,6 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     function getMyBank() public view returns(uint){
         return (pendingReturns[msg.sender]);
     }
-    
 
     //AUCTION SYSTEM
     //bidAmount permet de mélanger msg.value et ce que la personne a déja sur le contract
@@ -66,9 +66,9 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
             pastWinner = highestBidder;
             started = true;
         }
-        require(bidAmount > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
         require(highestBidder != msg.sender, "You are the last bidder");
         require(block.timestamp < auctionEndTime, "The auction has already ended");
+        require(bidAmount > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
         pendingReturns[highestBidder] += highestBid;
         highestBidder = msg.sender;
         highestBid = bidAmount;
@@ -90,8 +90,9 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
 
     // Ce withdraw permet de retirer une somme choisie
     function withdraw(uint amount) public returns(bool) {
-        require(amount <= pendingReturns[msg.sender], "Not enought ether");
         require(pendingReturns[msg.sender] > 0, "You have no bids avaiable to withdraw");
+        require(amount <= pendingReturns[msg.sender], "Not enought ether");
+
         if (!payable(msg.sender).send(amount)) {
             return false;
         }
@@ -99,13 +100,18 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
         return true;
     }
 
-    function withdrawRewards() public { // Pas compris pourquoi on utilise keccack256 ?
-        if (keccak256(abi.encodePacked(msg.sender)) == keccak256(abi.encodePacked(owners)))
-            payable(msg.sender).transfer(devRewards);
-        else
-            payable(msg.sender).transfer(comunityBalance[msg.sender]);
+    function withdrawRewards(uint amount) public { // Pas compris pourquoi on utilise keccack256 ?
+        require(amount <= comunityBalance[msg.sender], "Not enought ether");
+        require(comunityBalance[msg.sender] > 0, "You have no bids avaiable to withdraw");
+        payable(msg.sender).transfer(amount);
+        comunityBalance[msg.sender] -= amount;
     }
 
+    function devWithdrawal() public {
+        require(msg.sender == owners);
+        payable(msg.sender).transfer(devRewards);
+        devRewards = 0;
+    }
 
     //MINTING SYSTEM
     //function to mint the day NFT, should be onlyWinner
