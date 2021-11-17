@@ -17,7 +17,7 @@ function Text2() {
         <div>
         {isWideScreen && 
             <div class="row">
-                <div data-aos="fade-right " class="col text-center" >
+                <div class="col text-center">
                     <img src="assets/video/rewards.gif"/>
                 </div>
                 <div data-aos="fade-left" class="col">
@@ -42,11 +42,8 @@ function Text2() {
                 You will generate a passive income over time while owning a piece of history.
                 </p>
             </div>
-            <div class="text-center" data-aos="fade-left">
-                <video playsinline autoPlay muted loop width="500px" height="500px">
-                    <source src="assets/video/rewards.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                    </video>
+            <div class="text-center">
+                <img src="assets/video/rewards.gif"/>
             </div>
         </div>
         }

@@ -27,12 +27,9 @@ function Text3() {
                have no limits, ranging from independent artists to world famous artists, from public
                 figures to associations... each day will be highlighted.</p>
                 </div>
-                <div class="col text-center" data-aos="fade-left">
-                    <video playsinline autoPlay muted loop width="500px" height="500px">
-                    <source src="assets/video/collabs.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                    </video>
-                </div>
+                <div class="col text-center">
+                	<img src="assets/video/collabs.gif"/>
+		</div>
             </div>
         }
         {isTablet &&
@@ -46,12 +43,9 @@ function Text3() {
                have no limits, ranging from independent artists to world famous artists, from public
                 figures to associations... each day will be highlighted.</p>
         </div>
-        <div class="text-center" data-aos="fade-left">
-            <video playsinline autoPlay muted loop width="500px" height="500px">
-                    <source src="assets/video/collabs.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-            </video>
-        </div>
+        <div class="text-center">
+        <img src="assets/video/collabs.gif"/>
+	</div>
         </div>
         }
         </div>

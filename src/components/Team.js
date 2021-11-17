@@ -24,7 +24,7 @@ function Team() {
                         <div class="img-block mb-5">
                         <img src="assets/img/nat.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1"/>
                         <div class="content mt-2">
-                            <h4>@0xAtyo</h4>
+                           <a href="https://twitter.com/0xatyo" target="_blank" rel="noopener noreferer"><h4>@0xAtyo</h4></a>
                         </div>
                         </div>
                     </div>

@@ -38,3 +38,13 @@ p {
 .img-w {
     width: 450px;
 }
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+	color: gray;
+}
