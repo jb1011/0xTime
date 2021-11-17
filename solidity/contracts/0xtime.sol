@@ -16,7 +16,7 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     Counters.Counter private _tokenIdCounter;
     //Minting variables
     uint256 public currentId = 0; // WTF ???
-    bool private minted = false;
+    bool public minted = false;
     
     //AUCTION PARAMETERS
     uint public auctionEndTime;
@@ -53,11 +53,15 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     function bid(uint bidAmount) public payable {
         require(bidAmount <= msg.value + wallet[msg.sender], "Insufficient fund");
         if (block.timestamp > auctionEndTime) {
-            comunityReward = highestBid * community_percent / 100 / totalSupply();
-            for (uint i = 0; i < totalSupply(); i++)
+            if (totalSupply() != 0) {
+                comunityReward = highestBid * community_percent / 100 / totalSupply();
+                for (uint i = 0; i < totalSupply(); i++)
                     wallet[ownerOf(i)] += comunityReward;
-            wallet[owners] += highestBid / dev_percent;
-            if (!minted)
+                wallet[owners] += highestBid / dev_percent;
+            } else {
+                wallet[owners] += highestBid;
+            }
+            if (minted == false)
                 currentId++;
             else
                 minted = false;
@@ -107,13 +111,14 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     //function to mint the day NFT, should be onlyWinner
     function safeMint(address to) public  {
         if (block.timestamp > auctionEndTime) {
-            require(to == highestBidder, "You are not the winner of the auction.");
+            require(msg.sender == highestBidder, "You are not the winner of the auction.");
             _safeMint(to, currentId);
             currentId++;
             minted = true;
         }
         else if (pastWinner != address(0)) {
-            require(to == pastWinner, "You are not the winner of the auction.");
+            require(msg.sender == pastWinner, "You are not the winner of the auction.");
+            require(minted == false, "NFT already minted");
             _safeMint(to, currentId);
             currentId++;
             minted = true;

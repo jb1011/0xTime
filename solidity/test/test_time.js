@@ -125,9 +125,73 @@ describe('Time contract', () => {
 			expect(await time.connect(signers[1]).highestBidder()).to.equal(signers[1].address);
 			expect(await time.highestBid()).to.equal(0.002 * wei);
 			expect(await time.started()).to.equal(true);
+			await expect(time.connect(signers[3]).bid(0.003 * wei, { from: signers[3].address, value: 0.003 * wei})
+			).to.be.ok;
+			expect(await time.connect(signers[3]).highestBidder()).to.equal(signers[3].address);
+			expect(await time.highestBid()).to.equal(0.003 * wei);
+
+			await expect(time.connect(signers[3]).endBid()).to.be.ok;
+
+			expect(await time.connect(signers[1]).getMyBank({from: signers[1].address})).to.equal(0.002 * wei);
+			await expect(time.connect(signers[2]).bid(0.003 * wei, { from: signers[2].address, value: 0.003 * wei})
+			).to.be.ok;
+			expect(await time.connect(signers[2]).highestBidder()).to.equal(signers[2].address);
+			expect(await time.connect(signers[3]).pastWinner()).to.equal(signers[3].address);
+
+			await expect(time.connect(signers[1]).safeMint(signers[1].address, { from: signers[1].address})
+			).to.be.revertedWith("You are not the winner of the auction.");
+			await expect(time.connect(signers[2]).safeMint(signers[3].address, { from: signers[2].address})
+			).to.be.revertedWith("You are not the winner of the auction.");
+			await expect(time.connect(signers[3]).safeMint(signers[3].address, { from: signers[3].address})
+			).to.be.ok;
+			await expect(time.connect(signers[3]).safeMint(signers[3].address, { from: signers[3].address})
+			).to.be.revertedWith("NFT already minted");
+			await expect(time.connect(signers[1]).safeMint(signers[1].address, { from: signers[1].address})
+			).to.be.revertedWith("NFT already minted");
+			await expect(time.connect(signers[2]).safeMint(signers[3].address, { from: signers[2].address})
+			).to.be.revertedWith("NFT already minted");
+
+			await expect(time.connect(signers[2]).endBid()).to.be.ok;
+
+			expect(await time.connect(signers[3]).pastWinner()).to.equal(signers[3].address);
+
+			await expect(time.connect(signers[1]).safeMint(signers[1].address, { from: signers[1].address})
+			).to.be.revertedWith("You are not the winner of the auction.");
+		/*	await expect(time.connect(signers[3]).safeMint(signers[3].address, { from: signers[3].address})
+			).to.be.revertedWith("You are not the winner of the auction.");
+			await expect(time.connect(signers[2]).safeMint(signers[2].address, { from: signers[2].address})
+			).to.be.ok;
+		/*	await expect(time.connect(signers[3]).safeMint(signers[3].address, { from: signers[3].address})
+			).to.be.revertedWith("NFT already minted");
+			await expect(time.connect(signers[1]).safeMint(signers[1].address, { from: signers[1].address})
+			).to.be.revertedWith("NFT already minted");
+			await expect(time.connect(signers[2]).safeMint(signers[3].address, { from: signers[2].address})
+			).to.be.revertedWith("NFT already minted");*/
+			
 		});
 		it('Reward Withdraw test', async () => {
 			//tests incoming
+/*
+			await expect(time.connect(signers[1]).bid(0.002 * wei, { from: signers[1].address, value: 0.002 * wei})
+			).to.be.ok;
+			expect(await time.connect(signers[1]).highestBidder()).to.equal(signers[1].address);
+			expect(await time.highestBid()).to.equal(0.002 * wei);
+			expect(await time.started()).to.equal(true);
+			await expect(time.connect(signers[3]).bid(0.003 * wei, { from: signers[3].address, value: 0.003 * wei})
+			).to.be.ok;
+			expect(await time.connect(signers[3]).highestBidder()).to.equal(signers[3].address);
+			expect(await time.highestBid()).to.equal(0.003 * wei);
+
+			await expect(time.connect(signers[1]).endBid()).to.be.ok;
+
+			expect(await time.connect(signers[1]).getMyBank({from: signers[1].address})).to.equal(0.002 * wei);
+			await expect(time.connect(signers[2]).bid(0.003 * wei, { from: signers[2].address, value: 0.003 * wei})
+			).to.be.ok;
+			expect(await time.connect(signers[2]).highestBidder()).to.equal(signers[2].address);
+			
+			expect(await time.connect(signers[0]).getMyBank({from: signers[0].address})).to.equal(0.003 * wei);
+			await expect(time.connect(signers[0]).bid(0.004 * wei, { from: signers[0].address, value: 0.001 * wei})
+			).to.be.ok;*/
 		});
 	});
 
