@@ -96,7 +96,6 @@ describe('Time contract', () => {
 			expect(await time.connect(signers[2]).getMyBank({from: signers[2].address})).to.equal(0.005 * wei);
 			expect(await time.connect(signers[3]).getMyBank({from: signers[3].address})).to.equal(0);
 
-
 			await expect(time.connect(signers[3]).withdraw(0.008 * wei, { from: signers[3].address})
 			).to.be.revertedWith("You have no bids avaiable to withdraw");
 			await expect(time.connect(signers[1]).withdraw(0.008 * wei, { from: signers[1].address})
@@ -121,6 +120,11 @@ describe('Time contract', () => {
 		});
 		it('Mint test', async () => {
 			//tests incoming
+			await expect(time.connect(signers[1]).bid(0.002 * wei, { from: signers[1].address, value: 0.002 * wei})
+			).to.be.ok;
+			expect(await time.connect(signers[1]).highestBidder()).to.equal(signers[1].address);
+			expect(await time.highestBid()).to.equal(0.002 * wei);
+			expect(await time.started()).to.equal(true);
 		});
 		it('Reward Withdraw test', async () => {
 			//tests incoming

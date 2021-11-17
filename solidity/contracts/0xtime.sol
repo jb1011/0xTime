@@ -29,8 +29,7 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     address public pastWinner;
     bool public started = false;
     
-    mapping(address => uint) public pendingReturns; //Withdrawable amounts of outbided address
-    mapping(address => uint) public comunityBalance; //Recording comunity balance for rewards
+    mapping(address => uint) private wallet; //Withdrawable amounts of outbided address && Recording comunity balance for rewards
 
     uint public comunityReward;
     uint public devRewards;
@@ -42,18 +41,22 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     }
     
     function getMyBank() public view returns(uint){
-        return (pendingReturns[msg.sender]);
+        return (wallet[msg.sender]);
+    }
+
+    function endBid() public {
+        auctionEndTime = 10;
     }
 
     //AUCTION SYSTEM
     //bidAmount permet de mélanger msg.value et ce que la personne a déja sur le contract
     function bid(uint bidAmount) public payable {
-        require(bidAmount <= msg.value + pendingReturns[msg.sender], "Insufficient fund");
+        require(bidAmount <= msg.value + wallet[msg.sender], "Insufficient fund");
         if (block.timestamp > auctionEndTime) {
             comunityReward = highestBid * community_percent / 100 / totalSupply();
             for (uint i = 0; i < totalSupply(); i++)
-                    comunityBalance[ownerOf(i)] += comunityReward;
-            devRewards += highestBid / dev_percent;
+                    wallet[ownerOf(i)] += comunityReward;
+            wallet[owners] += highestBid / dev_percent;
             if (!minted)
                 currentId++;
             else
@@ -69,20 +72,20 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
         require(highestBidder != msg.sender, "You are the last bidder");
         require(block.timestamp < auctionEndTime, "The auction has already ended");
         require(bidAmount > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
-        pendingReturns[highestBidder] += highestBid;
+        wallet[highestBidder] += highestBid;
         highestBidder = msg.sender;
         highestBid = bidAmount;
         if (bidAmount - msg.value > 0) {
-            pendingReturns[msg.sender] -= (bidAmount - msg.value);
+            wallet[msg.sender] -= (bidAmount - msg.value);
         }
     }
     /*
     function withdraw() public returns(bool) {
-        uint amount = pendingReturns[msg.sender];
+        uint amount = wallet[msg.sender];
         require(amount > 0, "You have no bids avaiable to withdraw");
-        pendingReturns[msg.sender] = 0;
+        wallet[msg.sender] = 0;
         if (!payable(msg.sender).send(amount)) {
-            pendingReturns[msg.sender] = amount;
+            wallet[msg.sender] = amount;
             return false;
         }
         return true;
@@ -90,27 +93,14 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
 
     // Ce withdraw permet de retirer une somme choisie
     function withdraw(uint amount) public returns(bool) {
-        require(pendingReturns[msg.sender] > 0, "You have no bids avaiable to withdraw");
-        require(amount <= pendingReturns[msg.sender], "Not enought ether");
+        require(wallet[msg.sender] > 0, "You have no bids avaiable to withdraw");
+        require(amount <= wallet[msg.sender], "Not enought ether");
 
         if (!payable(msg.sender).send(amount)) {
             return false;
         }
-        pendingReturns[msg.sender] -= amount;
+        wallet[msg.sender] -= amount;
         return true;
-    }
-
-    function withdrawRewards(uint amount) public { // Pas compris pourquoi on utilise keccack256 ?
-        require(amount <= comunityBalance[msg.sender], "Not enought ether");
-        require(comunityBalance[msg.sender] > 0, "You have no bids avaiable to withdraw");
-        payable(msg.sender).transfer(amount);
-        comunityBalance[msg.sender] -= amount;
-    }
-
-    function devWithdrawal() public {
-        require(msg.sender == owners);
-        payable(msg.sender).transfer(devRewards);
-        devRewards = 0;
     }
 
     //MINTING SYSTEM
