@@ -1,57 +1,27 @@
 {
-  "name": "0xtime",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react",
+  "version": "1.0.0",
+  "description": "ok",
+  "main": "server.js",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "aos": "^3.0.0-beta.6",
-    "body-parser": "^1.19.0",
-    "bootstrap": "^5.1.3",
-    "dayjs": "^1.10.7",
-    "express": "^4.17.1",
-    "http": "0.0.1-security",
-    "jquery": "^3.6.0",
-    "node-sass": "^4.14.1",
-    "path": "^0.12.7",
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.0.2",
-    "react-calendar": "^3.5.0",
-    "react-dom": "^17.0.2",
-    "react-responsive": "^9.0.0-beta.4",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "reactstrap": "^9.0.0",
-    "web-vitals": "^1.0.1",
-    "web3": "^1.6.0"
+    "create-react-app": "^4.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "engines": {
+    "node": "17.x"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "author": "jb",
+  "license": "ISC"
 }

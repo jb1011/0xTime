@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ed8f25b5.chunk.css",
+    "main.js": "/static/js/main.ca52ecb6.chunk.js",
+    "main.js.map": "/static/js/main.ca52ecb6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2f0b301f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2f0b301f.js.map",
+    "static/css/2.a4f55832.chunk.css": "/static/css/2.a4f55832.chunk.css",
+    "static/js/2.6b119522.chunk.js": "/static/js/2.6b119522.chunk.js",
+    "static/js/2.6b119522.chunk.js.map": "/static/js/2.6b119522.chunk.js.map",
+    "static/js/3.a1928f25.chunk.js": "/static/js/3.a1928f25.chunk.js",
+    "static/js/3.a1928f25.chunk.js.map": "/static/js/3.a1928f25.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.a4f55832.chunk.css.map": "/static/css/2.a4f55832.chunk.css.map",
+    "static/css/main.ed8f25b5.chunk.css.map": "/static/css/main.ed8f25b5.chunk.css.map",
+    "static/js/2.6b119522.chunk.js.LICENSE.txt": "/static/js/2.6b119522.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/BasierCircle-Regular.8ce91e3c.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f0b301f.js",
+    "static/css/2.a4f55832.chunk.css",
+    "static/js/2.6b119522.chunk.js",
+    "static/css/main.ed8f25b5.chunk.css",
+    "static/js/main.ca52ecb6.chunk.js"
+  ]
+}
