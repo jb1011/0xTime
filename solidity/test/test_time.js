@@ -146,18 +146,14 @@ describe('Time contract', () => {
 			).to.be.ok;
 			await expect(time.connect(signers[3]).safeMint(signers[3].address, { from: signers[3].address})
 			).to.be.revertedWith("NFT already minted");
-			await expect(time.connect(signers[1]).safeMint(signers[1].address, { from: signers[1].address})
-			).to.be.revertedWith("NFT already minted");
-			await expect(time.connect(signers[2]).safeMint(signers[3].address, { from: signers[2].address})
-			).to.be.revertedWith("NFT already minted");
 
 			await expect(time.connect(signers[2]).endBid()).to.be.ok;
 
 			expect(await time.connect(signers[3]).pastWinner()).to.equal(signers[3].address);
 
-			await expect(time.connect(signers[1]).safeMint(signers[1].address, { from: signers[1].address})
+			await expect(time.connect(signers[3]).safeMint(signers[3].address, { from: signers[3].address})
 			).to.be.revertedWith("You are not the winner of the auction.");
-		/*	await expect(time.connect(signers[3]).safeMint(signers[3].address, { from: signers[3].address})
+			await expect(time.connect(signers[1]).safeMint(signers[1].address, { from: signers[1].address})
 			).to.be.revertedWith("You are not the winner of the auction.");
 			await expect(time.connect(signers[2]).safeMint(signers[2].address, { from: signers[2].address})
 			).to.be.ok;

@@ -48,10 +48,7 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
         auctionEndTime = 10;
     }
 
-    //AUCTION SYSTEM
-    //bidAmount permet de mélanger msg.value et ce que la personne a déja sur le contract
-    function bid(uint bidAmount) public payable {
-        require(bidAmount <= msg.value + wallet[msg.sender], "Insufficient fund");
+    function rewardAssign() private {
         if (block.timestamp > auctionEndTime) {
             if (totalSupply() != 0) {
                 comunityReward = highestBid * community_percent / 100 / totalSupply();
@@ -71,8 +68,15 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
             auctionEndTime = block.timestamp + (86400 - (block.timestamp % 86400));
             highestBid = STARTING_PRICE;
             pastWinner = highestBidder;
+            highestBidder = owners; //pour l'instant
             started = true;
         }
+    }
+    //AUCTION SYSTEM
+    //bidAmount permet de mélanger msg.value et ce que la personne a déja sur le contract
+    function bid(uint bidAmount) public payable {
+        require(bidAmount <= msg.value + wallet[msg.sender], "Insufficient fund");
+        rewardAssign();
         require(highestBidder != msg.sender, "You are the last bidder");
         require(block.timestamp < auctionEndTime, "The auction has already ended");
         require(bidAmount > highestBid + (highestBid / 100 * 10), "There is already an higher or equal bid");
@@ -112,6 +116,7 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
     function safeMint(address to) public  {
         if (block.timestamp > auctionEndTime) {
             require(msg.sender == highestBidder, "You are not the winner of the auction.");
+            rewardAssign();
             _safeMint(to, currentId);
             currentId++;
             minted = true;
