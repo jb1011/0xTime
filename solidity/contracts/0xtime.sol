@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts@4.3.3/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts@4.3.3/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts@4.3.3/access/Ownable.sol";
+import "@openzeppelin/contracts@4.3.3/utils/Counters.sol";
 
 contract Time is ERC721, ERC721Enumerable, Ownable {
     
@@ -59,7 +59,7 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
                 wallet[owners] += highestBid;
             }
             if (minted == false)
-                currentId++;
+                _tokenIdCounter.increment();
             else
                 minted = false;
             started = false;
@@ -117,8 +117,9 @@ contract Time is ERC721, ERC721Enumerable, Ownable {
         if (block.timestamp > auctionEndTime) {
             require(msg.sender == highestBidder, "You are not the winner of the auction.");
             rewardAssign();
-            _safeMint(to, currentId);
-            currentId++;
+            uint256 tokenId = _tokenIdCounter.current();
+            _tokenIdCounter.increment();
+            _safeMint(to, tokenId);
             minted = true;
         }
         else if (pastWinner != address(0)) {
