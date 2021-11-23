@@ -17,7 +17,7 @@ function Home() {
             countdownTimestampMs={1640991600000}/>
             
             {/* <Hero /> */}
-            {/* <Text /> */}
+            <Text />
             {/* <div class="pt-5 pb-5"></div>
             <LoadingBar /> */}
             <div class="pt-5 pb-5"></div>
