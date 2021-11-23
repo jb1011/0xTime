@@ -19,8 +19,8 @@ function Footer() {
 
             </div>
             <div class="row justify-content-center pt-4 text-muted">
-                <a class="col col-2 text-right border-right">smart contract</a>
-                <a class="col col-2">white paper</a>
+                <a class="col col-4 text-right border-right">smart contract</a>
+                <a class="col col-4 ">white paper</a>
             </div>
             <div class="row justify-content-center pt-4 text-muted pb-4">
                 ©2021 - 0xTime all right reserved
