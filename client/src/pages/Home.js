@@ -15,7 +15,7 @@ function Home() {
         // <div class="w-screen">
         <div className="container">
             <Countdown
-            countdownTimestampMs={1638313200000}/>
+            countdownTimestampMs={1640991600000}/>
             {/* <Nav /> */}
             {/* <Hero /> */}
             <Text />

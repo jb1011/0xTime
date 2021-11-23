@@ -19,7 +19,7 @@ function Text3() {
         {isWideScreen && 
             <div class="row">
                 <div class="col" data-aos="fade-right">
-                    <h1 class="text-secondary text-center">Collaboration</h1>
+                    <h1 class="text-secondary text-center">Collaborations</h1>
                     <p class="text-justify"> <br />We have decided to collaborate with many artists, 
             associations, brands and movements around the world to make each day even more unique
              and exceptional. <br /><br />Each day will be personalized by external actors, chosen each day
@@ -35,7 +35,7 @@ function Text3() {
         {isTablet &&
         <div class="row pt-5">
         <div class="" data-aos="fade-right">
-            <h1 class="text-secondary text-center h1-small" >Collaboration</h1>
+            <h1 class="text-secondary text-center h1-small" >Collaborations</h1>
             <p class="text-justify"> <br />We have decided to collaborate with many artists, 
             associations, brands and movements around the world to make each day even more unique
              and exceptional. <br /><br />Each day will be personalized by external actors, chosen each day

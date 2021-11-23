@@ -43,6 +43,7 @@ const Countdown = ({countdownTimestampMs}) => {
         {isWideScreen && 
         <div>
             <h2 class="text-center mt-3">0xTime</h2>
+            <p class="text-center text-small">Own a piece of history</p>
             <div class="countdown" data-aos="zoom-in">
                 <h1 class="">Coming Soon</h1>
                 <div class="countdown-timer">
@@ -61,13 +62,13 @@ const Countdown = ({countdownTimestampMs}) => {
                 </div>
                 <div class="row justify-content-center text-center pt-4 ">
                     <a href="https://instagram.com/0xtime" target="_blank" rel="noopener norefferer" class="col">
-                    <FontAwesomeIcon icon={faInstagram} className="icon-footer" />
+                    <FontAwesomeIcon icon={faInstagram} size="2x" />
                     </a>
                     <a href="https://discord.gg/fGUYR8AC" target="_blank" rel="noopener norefferer" class="col">
-                    <FontAwesomeIcon icon={faDiscord} className="icon-footer" />
+                    <FontAwesomeIcon icon={faDiscord} size="2x" />
                     </a>
                     <a href="https://twitter.com/0xTime_io" target="_blank" rel="noopener norefferer" class="col">
-                    <FontAwesomeIcon icon={faTwitter} className="icon-footer" />
+                    <FontAwesomeIcon icon={faTwitter} size="2x"  />
                     </a>
                 </div>
             </div>
@@ -76,6 +77,7 @@ const Countdown = ({countdownTimestampMs}) => {
             {isTablet && 
         <div>
             <h2 class="text-center mt-3">0xTime</h2>
+            <p class="text-center text-small">Own a piece of history</p>
             <div class="countdown" data-aos="zoom-in">
                 <h1 class="text-center">Coming Soon</h1>
                 <div class="countdown-timer-small">
@@ -93,14 +95,14 @@ const Countdown = ({countdownTimestampMs}) => {
                     <p class="text-small">Join us on our social media.</p>
                 </div>
                 <div class="row justify-content-center text-center pt-4 ">
-                    <a href="https://instagram.com/0xtime" target="_blank" rel="noopener norefferer" class="col">
-                    <FontAwesomeIcon icon={faInstagram} className="icon-footer" />
+                    <a href="https://instagram.com/0xtime" target="_blank" rel="noopener norefferer" class="col ">
+                    <FontAwesomeIcon icon={faInstagram} size="lg"/>
                     </a>
                     <a href="https://discord.gg/fGUYR8AC" target="_blank" rel="noopener norefferer" class="col">
-                    <FontAwesomeIcon icon={faDiscord} className="icon-footer" />
+                    <FontAwesomeIcon icon={faDiscord} size="lg"/>
                     </a>
                     <a href="https://twitter.com/0xTime_io" target="_blank" rel="noopener norefferer" class="col">
-                    <FontAwesomeIcon icon={faTwitter} className="icon-footer" />
+                    <FontAwesomeIcon icon={faTwitter} size="lg"/>
                     </a>
                 </div>
             </div>
