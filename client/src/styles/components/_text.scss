@@ -66,3 +66,70 @@
 
 }
 
+
+
+
+
+
+
+
+.clock-small {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    left: 50%;
+    top: 110%;
+    background: #fff;
+    transform: translate(-50%, -50%);
+}
+
+.clock-small::before { /* grande aiguille */
+    position: absolute;
+    content: '';
+    height: 75px;
+    width: 8px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 3px);
+    border-radius: 5px;
+    animation: spin 60s linear infinite;
+    transform-origin: top;
+}
+
+.clock-small::after { /* petite aiguille */
+    position: absolute;
+    content: '';
+    height: 55px;
+    width: 8px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 3px);
+    border-radius: 5px;
+    animation: spin 3600s linear infinite;
+    transform-origin: top;
+    
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(-180deg)
+    }
+    100% {
+        transform: rotate(180deg)
+    }
+}
+
+.dot-small::before { /*middle dot*/
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}

@@ -43,8 +43,8 @@ function Text() {
             </p>
         </div>
         <div class="text-center" >
-            <img src="assets/img/logo-min.png" class="img-fluid" />
-            {/* <div class="clock"><div class="dot"></div></div> */}
+            {/* <img src="assets/img/logo-min.png" class="img-fluid" /> */}
+            <div class="clock-small"><div class="dot-small"></div></div>
         </div>
         </div>
         }
