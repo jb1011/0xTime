@@ -35,8 +35,8 @@ const Countdown = ({countdownTimestampMs}) => {
     }, []);
 
 
-    const isTablet = useMediaQuery({ query: '(max-width: 1000px)'})
-    const isWideScreen = useMediaQuery({ query: '(min-width: 1001px)'})
+    const isTablet = useMediaQuery({ query: '(max-width: 1410px)'})
+    const isWideScreen = useMediaQuery({ query: '(min-width: 1411px)'})
 
     return (
         <div>

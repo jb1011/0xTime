@@ -20,7 +20,7 @@ function Text2() {
                 <div class="col text-center">
                     <img src="assets/video/rewards.gif"/>
                 </div>
-                <div data-aos="fade-left" class="col">
+                <div data-aos="zoom-in-down" class="col">
                     <h1 class="text-secondary text-center">Earn Rewards</h1>
                     <p class="text-justify"><br />When you mint a day, it is uniquely yours. You become a Holder. <br /><br />
                 This allows you to receive income on future auctions. Every day, 70% of the auction is redistributed to the Holders.
@@ -32,7 +32,7 @@ function Text2() {
             </div>
         }
         {isTablet &&
-        <div class="row pt-5" data-aos="fade-right">
+        <div class="row pt-5" data-aos="zoom-in-down">
             <div class="">
                 <h1 class="text-secondary text-center h1-small">Earn Rewards</h1>
                 <p class="text-justify"><br />When you mint a day, it is uniquely yours. You become a Holder. <br /><br />
@@ -42,8 +42,8 @@ function Text2() {
                 You will generate a passive income over time while owning a piece of history.
                 </p>
             </div>
-            <div class="text-center">
-                <img src="assets/video/rewards.gif"/>
+            <div class="text-center ">
+                <img src="assets/video/rewards.gif" class="gif-home"/>
             </div>
         </div>
         }

@@ -18,7 +18,7 @@ function Text3() {
         <div>
         {isWideScreen && 
             <div class="row">
-                <div class="col" data-aos="fade-right">
+                <div class="col" data-aos="zoom-in-down">
                     <h1 class="text-secondary text-center">Collaborations</h1>
                     <p class="text-justify"> <br />We have decided to collaborate with many artists, 
             associations, brands and movements around the world to make each day even more unique
@@ -34,7 +34,7 @@ function Text3() {
         }
         {isTablet &&
         <div class="row pt-5">
-        <div class="" data-aos="fade-right">
+        <div class="" data-aos="zoom-in-down">
             <h1 class="text-secondary text-center h1-small" >Collaborations</h1>
             <p class="text-justify"> <br />We have decided to collaborate with many artists, 
             associations, brands and movements around the world to make each day even more unique
@@ -43,8 +43,8 @@ function Text3() {
                have no limits, ranging from independent artists to world famous artists, from public
                 figures to associations... each day will be highlighted.</p>
         </div>
-        <div class="text-center">
-        <img src="assets/video/collabs.gif"/>
+        <div class="text-center ">
+        <img src="assets/video/collabs.gif" class="gif-home"/>
 	</div>
         </div>
         }

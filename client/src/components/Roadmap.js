@@ -16,7 +16,7 @@ function Roadmap() {
         <div class="row">
         <div class="col-md-12">
             <div class="main-timeline">
-                <div class="timeline" data-aos="fade-left">
+                <div class="timeline" data-aos="fade-up">
                 <div class="timeline-content">
 
                         <div class="timeline-year">2021</div>
@@ -27,7 +27,7 @@ function Roadmap() {
                         </p>
                     </div>
                 </div>
-                <div class="timeline" data-aos="fade-right">
+                <div class="timeline" data-aos="fade-up">
                     <div class="timeline-content">
                         <div class="timeline-year">2021</div>
                         <div class="timeline-icon"><FontAwesomeIcon icon={faUsers} /></div>
@@ -37,7 +37,7 @@ function Roadmap() {
                         </p>
                     </div>
                 </div>
-                <div class="timeline" data-aos="fade-left">
+                <div class="timeline" data-aos="fade-up">
                 <div class="timeline-content">
                         <div class="timeline-year">2022</div>
                         <div class="timeline-icon"><FontAwesomeIcon icon={faUniversity} /></div>
@@ -47,7 +47,7 @@ function Roadmap() {
                         </p>
                     </div>
                 </div>
-                <div class="timeline" data-aos="fade-right">
+                <div class="timeline" data-aos="fade-up">
                 <div class="timeline-content">
                         <div class="timeline-year">2022</div>
                         <div class="timeline-icon"><FontAwesomeIcon icon={faGem} /></div>

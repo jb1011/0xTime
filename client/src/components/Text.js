@@ -18,7 +18,7 @@ function Text() {
         <div>
         {isWideScreen && 
             <div class="row">
-                <div class="col" data-aos="fade-right" >
+                <div class="col" data-aos="zoom-in-down" >
                     <h1 class="text-secondary text-center">0xTime</h1>
                     <p class="text-justify"><br />Welcome to 0xTime. A brand new decentralized NFT platform that allows you to mint each day as an nft. <br /><br />
                 Is it your birthday today ? Neil Armstrong stepped on the moon ? Or simply you had a great day ? 0xTime allows you to mint the time. <br /><br />
@@ -34,7 +34,7 @@ function Text() {
         }
         {isTablet &&
         <div class="row pt-5">
-        <div class="" data-aos="fade-right">
+        <div class="" data-aos="zoom-in-down">
             <h1 class="text-secondary text-center h1-small">0xTime</h1>
             <p class="text-justify"><br />Welcome to 0xTime. A brand new decentralized NFT platform that allows you to mint each day as an nft. <br /><br />
                 Is it your birthday today ? Neil Armstrong stepped on the moon ? Or simply you had a great day ? 0xTime allows you to mint the time. <br /><br />

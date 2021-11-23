@@ -3,7 +3,6 @@ import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import Text from '../components/Text'
 import Footer from '../components/Footer'
-import LoadingBar from '../components/LoadingBar'
 import Text2 from '../components/Text2'
 import Text3 from '../components/Text3'
 import Roadmap from '../components/Roadmap'
@@ -16,9 +15,9 @@ function Home() {
         <div className="container">
             <Countdown
             countdownTimestampMs={1640991600000}/>
-            {/* <Nav /> */}
+            
             {/* <Hero /> */}
-            <Text />
+            {/* <Text /> */}
             {/* <div class="pt-5 pb-5"></div>
             <LoadingBar /> */}
             <div class="pt-5 pb-5"></div>
