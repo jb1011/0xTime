@@ -20,7 +20,7 @@ function Home() {
             <Text />
             {/* <div class="pt-5 pb-5"></div>
             <LoadingBar /> */}
-            <div class="pt-5"></div>
+            <div class="pt-5 "></div>
             <Text2 />
             <div class="pt-5"></div>
             <Text3 />

@@ -88,7 +88,7 @@
     position: absolute;
     content: '';
     height: 75px;
-    width: 8px;
+    width: 5px;
     background: black;
     top: 50%;
     left: calc(50% - 3px);
@@ -101,7 +101,7 @@
     position: absolute;
     content: '';
     height: 40px;
-    width: 8px;
+    width: 5px;
     background: black;
     top: 50%;
     left: calc(50% - 3px);
@@ -123,8 +123,8 @@
 .dot-small::before { /*middle dot*/
     content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: #000;
     left: 50%;
