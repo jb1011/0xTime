@@ -79,16 +79,16 @@ const Countdown = ({countdownTimestampMs}) => {
             <h2 class="text-center mt-3">0xTime</h2>
             <p class="text-center text-small">Own a piece of history</p>
             <div class="countdown" data-aos="zoom-in">
-                <h1 class="text-center">Coming Soon</h1>
+                <h2 class="text-center">Coming Soon</h2>
                 <div class="countdown-timer-small">
                     <span className="two-numbers">{remainingTime.days}</span>
-                    <span>days</span>
+                    <span>&nbsp;days&nbsp;</span>
                     <span className="two-numbers">{remainingTime.hours}</span>
-                    <span>hours</span>
+                    <span>&nbsp;hours&nbsp;</span>
                     <span className="two-numbers">{remainingTime.minutes}</span>
-                    <span>minutes</span>
+                    <span>&nbsp;minutes&nbsp;</span>
                     <span className="two-numbers">{remainingTime.seconds}</span>
-                    <span>seconds</span>
+                    <span>&nbsp;seconds</span>
                 </div>
                 <div class="text-center pt-2">
                     <p class="text-small">The Website will launch the 1st of december - scroll down to learn about the project</p>
