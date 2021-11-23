@@ -57,7 +57,7 @@ const Countdown = ({countdownTimestampMs}) => {
                     <span>seconds</span>
                 </div>
                 <div class="text-center pt-2">
-                    <p>The Website will launch the 1st of december - scroll down to learn about the project</p>
+                    <p>The Website will launch the 1st of January 2022 - scroll down to learn about the project</p>
                     <p>Join us on our social media.</p>
                 </div>
                 <div class="row justify-content-center text-center pt-4 ">

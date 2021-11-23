@@ -20,10 +20,10 @@ function Text() {
             <div class="row">
                 <div class="col" data-aos="zoom-in-down" >
                     <h1 class="text-secondary text-center">0xTime</h1>
-                    <p class="text-justify"><br />Welcome to 0xTime. A brand new decentralized NFT platform that allows you to mint each day as an nft. <br /><br />
-                Is it your birthday today ? Neil Armstrong stepped on the moon ? Or simply you had a great day ? 0xTime allows you to mint the time. <br /><br />
-                The system is quite simple : each day is auctioned from the first second of its existence (00:01 UTC) and is then redistributed to the biggest 
-                bider at the last second of the day. And because the present is good but the future is better, it does not stop there, you can also take profit from it!
+                    <p class="text-justify"><br />Welcome to 0xTime, a brand new decentralized NFT platform that allows you to mint each day as an nft. <br /><br />
+                Is it your birthday today? Neil Armstrong stepped on the moon? Or simply you had a great day? 0xTime allows you to mint the time. <br /><br />
+                The system is quite simple : each day is auctioned from the first second of its existence (00:01 UTC) and is then given out to the biggest 
+                bider at the last second of the day. Because the present is good but the future is better, it does not stop there, you can also take profit from it!
             </p>
                 </div>
                 <div class="col text-center">
@@ -36,10 +36,10 @@ function Text() {
         <div class="row pt-5">
         <div class="" data-aos="zoom-in-down">
             <h1 class="text-secondary text-center h1-small">0xTime</h1>
-            <p class="text-justify"><br />Welcome to 0xTime. A brand new decentralized NFT platform that allows you to mint each day as an nft. <br /><br />
-                Is it your birthday today ? Neil Armstrong stepped on the moon ? Or simply you had a great day ? 0xTime allows you to mint the time. <br /><br />
-                The system is quite simple : each day is auctioned from the first second of its existence (00:01 UTC) and is then redistributed to the biggest 
-                bider at the last second of the day. And because the present is good but the future is better, it does not stop there, you can also take profit from it!
+            <p class="text-justify"><br />Welcome to 0xTime, a brand new decentralized NFT platform that allows you to mint each day as an nft. <br /><br />
+                Is it your birthday today? Neil Armstrong stepped on the moon? Or simply you had a great day? 0xTime allows you to mint the time. <br /><br />
+                The system is quite simple : each day is auctioned from the first second of its existence (00:01 UTC) and is then given out to the biggest 
+                bider at the last second of the day. Because the present is good but the future is better, it does not stop there, you can also take profit from it!
             </p>
         </div>
         <div class="text-center" >

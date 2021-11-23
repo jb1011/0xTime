@@ -16,8 +16,8 @@ function Team() {
                 <div class="header my-5">
                 <h1 class="h1-small">Our Team </h1>
                 <p class="text-muted">Composed of an artist/dev, historian/dev and a dev, 
-                  our team is mostly anonymous, born from the DeFi and NFT Community. We aim 
-                  at becoming a Decentralized Autonomous Organization, and we are actively working towards that goal.</p>
+                  our team is mostly anonymous, born from the DeFi and NFT Community. Our goal is to become a 
+                  Decentralized Autonomous Organization</p>
                 </div>
                 <div class="row row justify-content-center text-center">
                     <div class="col-md-6 col-lg-3 ">
