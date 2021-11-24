@@ -91,8 +91,8 @@ const Countdown = ({countdownTimestampMs}) => {
                     <span>&nbsp;seconds</span>
                 </div>
                 <div class="text-center pt-2">
-                    <p class="text-small">The Website will launch the 1st of december - scroll down to learn about the project</p>
-                    <p class="text-small">Join us on our social media.</p>
+                    <p>The Website will launch the 1st of January 2022 - scroll down to learn about the project</p>
+                    <p>Join us on our social media.</p>
                 </div>
                 <div class="row justify-content-center text-center pt-4 ">
                     <a href="https://instagram.com/0xtime" target="_blank" rel="noopener norefferer" class="col ">
