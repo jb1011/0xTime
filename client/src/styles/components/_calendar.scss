@@ -6,9 +6,17 @@
     align-items: center;
 }
 
+.pop-up-card {
+  height: 42em;
+  border: 1px solid black;
+
+  border-radius: 15px;
+
+}
+
 
 .react-calendar {
-    width: 800px;
+    // width: 800px;
     max-width: 100%;
     background: white;
     border: 1px solid black;
